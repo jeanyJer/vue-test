@@ -13,8 +13,8 @@ npm run test
 ```
 运行
 ```
-npm run dev
+npm run dev\npm start
 ```
 构建
 ```
-npm run start
+npm run build
