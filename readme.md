@@ -7,7 +7,14 @@
 ```
 npm install
 ```
-安装完成后，执行
+安装完成后，测试执行
 ```
-karma start
+npm run test
 ```
+运行
+```
+npm run dev
+```
+构建
+```
+npm run start
