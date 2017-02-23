@@ -9,19 +9,19 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/MarxJiao/vue-karma-test.git"
+    "url": "git+https://github.com/shortbaby/vue-test.git"
   },
   "keywords": [
     "karma",
     "vuetest",
     "unit"
   ],
-  "author": "MarxJiao",
+  "author": "xgl",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/MarxJiao/vue-karma-test/issues"
+    "url": "https://github.com/shortbaby/vue-test/issues"
   },
-  "homepage": "https://github.com/MarxJiao/vue-karma-test#readme",
+  "homepage": "https://github.com/shortbaby/vue-test#readme",
   "devDependencies": {
     "babel-core": "^6.21.0",
     "babel-loader": "^6.2.10",

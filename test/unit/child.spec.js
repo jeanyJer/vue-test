@@ -1,6 +1,6 @@
 /**
  * @file child.vue测试用例
- * @author MarxJiao
+ * @author xgl
  */
 
 // 引用vue

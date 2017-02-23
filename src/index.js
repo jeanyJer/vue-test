@@ -1,6 +1,6 @@
 /**
  * @file 入口JS
- * @author MarxJiao
+ * @author xgl
  */
 
 // LIB
