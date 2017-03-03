@@ -1,28 +1,34 @@
 <template>
-    <div>
-        <h1>{{title | upperCase}}</h1>
-        <vc-message :message="message"></vc-message>
+    <div class="main">
+        <ul class="title-list">
+            <li v-for="item in titles" :class="{active: item.title == view}" @click="changeTitle(item.title)">
+                <span>{{item.title | upperCase}}</span>
+            </li>
+        </ul>
+        <div class="list-wrap">
+            <component v-bind:is="view" :title="view"></component>
+        </div>
     </div>
 </template>
 
 <script>
-    import child from './components/child.vue'
+    import dashboard from './dashboard/index.vue';
+    import agents from './agents/index.vue';
+    import {titleList} from './config.js';
     export default {
         data() {
             return {
-                title: '标题',
-                message: '这是子组件'
+                titles: titleList,
+                view: "agents",
             }
         },
         components: {
-            'vc-message': child
-        },
-        mounted() {
-            this.title = 'Hello world'
+            'dashboard': dashboard,
+            'agents': agents
         },
         methods: {
-            setMessage(msg) {
-                this.message = msg;
+            changeTitle(title) {
+                this.view = title;
             }
         },
         filters: {
@@ -32,3 +38,6 @@
         }
     }
 </script>
+<style lang="sass">
+    
+</style>

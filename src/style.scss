@@ -1,0 +1,27 @@
+.main {
+    margin: 50px auto;
+    position: relative;
+    width: 1000px;
+    .title-list {
+        text-align: right;
+        >li {
+            display: inline-block;
+            width: 100px;
+            border: 1px solid #333;
+            border-top-left-radius:10px;
+            border-top-right-radius:10px;
+            text-align: center;
+            padding: 8px 0;
+            margin-left: 5px;
+            border-bottom: 0;
+            cursor: pointer;
+        }
+        .active {
+            color: #fff;
+            background-color: #666;
+        }
+    }
+    .list-wrap {
+        border: 1px solid #333;
+    }
+}

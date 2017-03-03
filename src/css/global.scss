@@ -1,0 +1,71 @@
+/**
+ * @file global
+ * @author xujin
+ */
+
+html {
+   	height: 100%;
+   	overflow-x: hidden;
+}
+
+body {
+	font-family: '微软雅黑','Microsoft Yahei','Helvetica Neue',Helvetica,Arial,sans-serif;
+    color: #333;
+    font-size: 14px;
+	background: #fff;
+	margin: 0;
+	padding: 0;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	-ms-overflow-style: scrollbar;
+	
+}
+
+ul {
+	padding: 0;
+	margin: 0;
+	li {
+		list-style: none;
+	}
+}
+
+h3 {
+	margin: 0;
+	font-size: 1.8rem;
+	font-weight: 600;
+}
+a {
+	text-decoration: none;
+}
+
+.pointer {
+	cursor: pointer;
+}
+.middle {
+	vertical-align: middle;
+	display: inline-block;
+}
+
+label {
+	font-weight: normal;
+}
+
+.clearfix {
+	zoom: 1;
+	&:after {
+		content: " ";
+		display: block;
+		clear: both;
+	}
+}
+
+.left {
+	position: relative;
+	float: left;
+}
+
+.right {
+	position: relative;;
+	float: right;
+}
+

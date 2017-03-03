@@ -1,12 +1,13 @@
 /**
  * @file 入口JS
- * @author xgl
+ * @author xujin
  */
 
 // LIB
 import Vue from 'vue';
 
 import app from './app.vue';
+import './css/main.scss';
 
 new Vue({
     el: '#app',
