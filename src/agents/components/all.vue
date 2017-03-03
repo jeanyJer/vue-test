@@ -1,14 +1,12 @@
 <template>
 	<div class="content-wrap">
 		<div class="left-wrap">
-			<ul>
-				<li>
-					this is my list
-				</li>
+			<ul class="list">
+				this is my Agents list
 			</ul>
 		</div>
 		<div class="right-wrap">
-			this is my summary
+			this is my Agents summary
 		</div>
 	</div>
 </template>

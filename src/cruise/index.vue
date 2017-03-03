@@ -7,16 +7,15 @@
         <div class="content-wrap">
             <div class="left-wrap">
                 <ul class="list">
-                    this is my dashboard list
+                    this is my cruise list
                 </ul>
             </div>
             <div class="right-wrap">
-                this is my dashboard summary
+                this is my cruise summary
             </div>
         </div>
     </div>
 </template>
-
 <script>
 	import {typeList} from './config.js';
     import filter from '../filter';

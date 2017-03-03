@@ -7,11 +7,11 @@
         <div class="content-wrap">
             <div class="left-wrap">
                 <ul class="list">
-                    this is my dashboard list
+                    this is my help list
                 </ul>
             </div>
             <div class="right-wrap">
-                this is my dashboard summary
+                this is my help summary
             </div>
         </div>
     </div>

@@ -16,6 +16,11 @@ Object.keys(baseWebpackConfig.entry).forEach(function(name) {
 })
 var devPlugins = [
     new ProgressBarPlugin(),
+    new webpack.ProvidePlugin({
+        $: "jquery",
+        jQuery: "jquery",
+        "window.jQuery": "jquery"
+    }),
     new webpack.optimize.CommonsChunkPlugin({
         name: "vendor",
         filename: "vendor.js",

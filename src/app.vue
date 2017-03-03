@@ -14,6 +14,8 @@
 <script>
     import dashboard from './dashboard/index.vue';
     import agents from './agents/index.vue';
+    import cruise from './cruise/index.vue';
+    import help from './help/index.vue';
     import {titleList} from './config.js';
     export default {
         data() {
@@ -22,19 +24,26 @@
                 view: "agents",
             }
         },
-        components: {
-            'dashboard': dashboard,
-            'agents': agents
-        },
         methods: {
+            /**
+             * 切换模板页面
+             * @param  {String} title 要切换的模板名
+             */
             changeTitle(title) {
                 this.view = title;
             }
         },
         filters: {
+            //将字符串转成大写
             upperCase(str) {
                 return str.toUpperCase();
             }
+        },
+        components: {
+            dashboard,
+            agents,
+            cruise,
+            help
         }
     }
 </script>

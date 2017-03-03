@@ -2,7 +2,7 @@
 	<div class="content-wrap">
 		<div class="left-wrap">
 			<ul class="list">
-				<li v-for="(item, index) in data" :class="{active: item.status == 1}">
+				<li v-for="(item, sort) in data" :class="{active: item.status == 1}">
 					<div class="sort"></div>
 					<div>
 						<div class="info">
@@ -17,12 +17,14 @@
 						</div>
 						<div class="oper">
 							<span>+</span>
-							<span class="add-spe" @click="addSpecify">Specify Resources</span>
+							<span class="add-spe" @click="addSpecify($event,sort)">Specify Resources</span>
 							<span class="line"> | </span>
 							<span>Resources:</span>
-							<span v-for="elem in item.resources">
+							<span v-for="(elem, index) in item.resources">
 								<span>{{elem.name}}</span>
-								<span class="icon" @click="deleteResource">icon</span>
+								<span class="icon" @click="deleteResource(sort, index,elem.id)">
+									×
+								</span>
 							</span>
 						</div>
 					</div>
@@ -34,113 +36,83 @@
 			</ul>
 		</div>
 		<div class="right-wrap">
-			this is my summary
+			<div class="summary-wrap">
+				<p>Summary</p>
+				<ul class="records">
+					<li v-for="item in summarys">
+						<span>{{item.name}}</span>
+						<span>{{item.count}}</span>
+					</li>
+				</ul>
+			</div>
+			<div class = "history-wrap">
+				<p>History</p>
+				<ul class="records">
+					<li v-for="item in historys">
+						{{item.name}}
+					</li>
+				</ul>
+			</div>
 		</div>
-		<add v-if="showAdd" :style="style"> </add>
+		<add v-if="showAdd" :style="style" v-on:add="addResource"></add>
 	</div>
 </template>
 <script>
-	import {dataList} from '../config.js';
+	import {dataList, summaryList, historyList} from '../config.js';
 	import add from './add.vue';
 	export default {
 		data() {
 			return {
 				data: dataList,
+				summarys: summaryList,
+				historys: historyList,
 				showAdd: false,
 				position: 0,
-				style: {}
+				style: {},
+				sort: 0
 			}
 		},
 		methods: {
-			addSpecify(event) {
+			/**
+			 * 打开添加资源弹窗
+			 * @param {Object} event 当前鼠标事件对象
+			 * @param {Number} sort  当前操作列表的索引
+			 */
+			addSpecify(event, sort) {
+				this.sort = sort;
 				this.style = {
-					left: event.clientX;
-					top: event.clientY;
+					left: event.clientX,
+					top: event.clientY,
 				};
 				this.showAdd = true;
 			},
-			deleteResource() {
 
+			/**
+			 * 添加新增的资源
+			 * @param {Array} arr 新增的资源数组
+			 */
+			addResource(arr) {
+				arr.forEach((elem) => {
+					let obj = {
+						'id': 0,
+						'name': elem
+					};
+					this.data[this.sort].resources.push(obj);
+				});
 			},
+
+			/**
+			 * 删除资源
+			 * @param  {Number} sort  当前操作的列表数据索引
+			 * @param  {Number} index 当前数据中删除资源的索引
+			 * @param  {Number} id    删除资源的id
+			 */
+			deleteResource(sort, index, id) {
+				this.data[sort].resources.splice(index, 1);
+			},
+		},
+		components: {
+			add
 		}
 	}
 </script>
-<style lang="sass">
-	.content-wrap {
-		height: 500px;
-		display: flex;
-		.left-wrap {
-			height:100%;
-			border-right: 1px solid #333;
-			flex: 1;
-			.list {
-				margin: 20px;
-				>li {
-					margin-top: 20px;
-					border: 1px solid #333;
-					border-radius: 10px;
-					padding: 10px;
-					position: relative;
-					background-color: #c4e5ac;
-					>div {
-						display: inline-block;
-						vertical-align: middle;
-					}
-					.line {
-						color: #999;
-					}
-					.sort {
-						height: 40px;
-						width: 40px;
-						background-color: #999;
-						color: #fff;
-						text-align: center;
-						border-radius: 50%;
-						margin-right: 10px;
-					}
-					.info {
-						font-weight: bold;
-						margin-bottom: 5px;
-					}
-					.oper {
-						font-size: 12px;
-					}
-					.add-spe {
-						text-decoration: underline;
-						cursor: pointer;
-					}
-					.icon {
-						cursor: pointer;
-						color: #999;
-						margin-right: 10px;
-					}
-					.deny {
-						position: absolute;
-						bottom: 10px;
-						right: 10px;
-						.icon-deny {
-							display: inline-block;
-						    height: 11px;
-						    width: 11px;
-						    border: 1px solid #000;
-						    text-align: center;
-						    line-height: 11px;
-						    border-radius: 50%;
-						}
-						.txt {
-							text-decoration: underline;
-						}
-					}
-				}
-				.active {
-					background-color: #eef7a8;
-				}
-			}
-
-		}
-		.right-wrap {
-			width: 260px;
-			padding: 20px;
-		}
-	}
-</style>>

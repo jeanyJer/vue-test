@@ -5,6 +5,7 @@
 
 // LIB
 import Vue from 'vue';
+import jquery from 'jquery';
 
 import app from './app.vue';
 import './css/main.scss';
