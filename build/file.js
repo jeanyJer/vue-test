@@ -1,6 +1,6 @@
 /**
  * @fileOverview file
- * @author xgl
+ * @author xujin
  */
 
 'use strict';

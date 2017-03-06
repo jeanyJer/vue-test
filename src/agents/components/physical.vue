@@ -79,11 +79,17 @@
 			 * @param {Number} sort  当前操作列表的索引
 			 */
 			addSpecify(event, sort) {
-				this.sort = sort;
+				var scrollTop = $('body').scrollTop();
+				var scrollLeft = $('body').scrollLeft();
+				var addTag = $(".add-spe").eq(sort);
+				var left = addTag.offset().left - scrollLeft;
+				var top = addTag.offset().top + 25 - scrollTop;
+				
 				this.style = {
-					left: event.clientX,
-					top: event.clientY,
+					left: left + 'px',
+					top: top + 'px',
 				};
+				this.sort = sort;
 				this.showAdd = true;
 			},
 

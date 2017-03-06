@@ -1,5 +1,7 @@
 <template>
-	<div class="add-content">
+	<div class="add-content" v-bind:style="{left: style.left, top: style.top,display: 'block'}">
+		<span class="triangle-up"></span>
+		<span class="triangle-border"></span>
 		<div>(separate multiple resources name with commas)</div>
 		<input class="input-wrap" type="text">
 		<div>
@@ -28,17 +30,15 @@
 				if (val) {
 					var left = val.left;
 					var top = val.top;
-					// debugger;
-					// $('.add-content').css({'position': "fixed",'top':val.top+100,'left':val.left+50,'z-index':2});   
+					debugger;
 				}
 			}
 		},
 		created() {
-			// console.log(this.style);
-			// debugger;
+			
 		},
 		methods: {
-			
+
 			//设置弹窗位置
 			setPosition () {
 				var wrap = $(".add-content");
@@ -66,6 +66,7 @@
 <style lang="sass">
 	.add-content {
 		position: fixed;
+		display: none;
 		top: 0;
 		left: 0;
 		background-color: #b8d6d0;
@@ -86,6 +87,26 @@
 			margin-right: 10px;
 			border-radius: 15px;
 			cursor: pointer;
+		}
+		.triangle-up {
+	        position: absolute;
+		    width: 0;
+		    height: 0;
+		    border-left: 10px solid transparent;
+		    border-right: 10px solid transparent;
+		    border-bottom: 15px solid #000;
+		    top: -15px;
+		    left: 30px;
+		}
+		.triangle-border {
+	        position: absolute;
+		    width: 0;
+		    height: 0;
+		    border-left: 10px solid transparent;
+		    border-right: 10px solid transparent;
+		    border-bottom: 15px solid #b8d6d0;
+		    top: -12px;
+		    left: 30px;
 		}
 	}
 </style>

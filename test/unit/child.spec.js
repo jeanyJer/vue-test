@@ -1,13 +1,13 @@
 /**
  * @file child.vue测试用例
- * @author xgl
+ * @author xujin
  */
 
 // 引用vue
 import Vue from 'vue';
 
 // 引用要测试的组件
-import child from '../../src/components/child.vue';
+import child from '../../src/agents/index.vue';
 
 /**
  * 获取生成的vm
@@ -22,17 +22,4 @@ function getRenderedVm (Component, propsData) {
     return vm
 }
 
-// 描述要测试的内容
-describe('test child.vue', () => {
-    
-    // 描述要测试的最小单元
-    it('组件加载后，child组件的message应该是「这是子组件」', () => {
-        let childvm = getRenderedVm(child, {
-            message: '这是message'
-        })
-
-        // 断言组件的child组件的props是否生效
-        expect(childvm.message).toEqual('这是message');
-    });
-});
     

@@ -11,15 +11,6 @@ import app from '../../src/app.vue';
 
 // 描述要测试的内容
 describe('test app.vue', () => {
-    
-    // 描述要测试的最小单元
-    it('组件加载后，title应该是Holle world', () => {
-
-        // 这里将app生成vue实例，并使用 $mount() 模拟挂载状态
-        let vm = new Vue(app).$mount();
-        // 断言组件的title是否变为了'Hello world'
-        expect(vm.title).toEqual('Hello world');
-    });
 
     // 描述要测试的最小单元
     it('设置message为『你好世界』', () => {
@@ -28,10 +19,10 @@ describe('test app.vue', () => {
         let vm = new Vue(app).$mount();
 
         // 执行setMessage方法
-        vm.setMessage('你好世界');
+        vm.changeTitle('你好世界');
 
         // 断言组件的message是否变为了'你好世界'
-        expect(vm.message).toEqual('你好世界');
+        expect(vm.view).toEqual('你好世界');
     });
 
 

@@ -2,11 +2,11 @@
 	<div class="content-wrap">
 		<div class="left-wrap">
 			<ul class="list">
-				this is my Agents list
+				this is my all Agents list
 			</ul>
 		</div>
 		<div class="right-wrap">
-			this is my Agents summary
+			this is my all Agents summary
 		</div>
 	</div>
 </template>
