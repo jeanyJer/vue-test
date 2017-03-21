@@ -26,24 +26,11 @@
 			}
 		},
 		watch: {
-			style: function(val) {
-				if (val) {
-					var left = val.left;
-					var top = val.top;
-					debugger;
-				}
-			}
 		},
 		created() {
 			
 		},
 		methods: {
-
-			//设置弹窗位置
-			setPosition () {
-				var wrap = $(".add-content");
-		
-			},
 
 			//添加资源
 			addResource() {
